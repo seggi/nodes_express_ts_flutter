@@ -1,1 +1,0 @@
-{"version":3,"file":"user.js","sourceRoot":"","sources":["../../src/models/user.ts"],"names":[],"mappings":";AAAA,qBAAqB;;;AAErB,yCAA0D;AAC1D,sDAAkD;AAoBrC,QAAA,IAAI,GAAG,qBAAS,CAAC,MAAM,CAAC,MAAM,EAAE;IACzC,EAAE,EAAE,qBAAS,CAAC,OAAO;IACrB,KAAK,EAAE,qBAAS,CAAC,MAAM;IACvB,QAAQ,EAAE,qBAAS,CAAC,MAAM;CAC7B,CAAC,CAAA"}
