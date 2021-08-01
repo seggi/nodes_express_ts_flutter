@@ -14,7 +14,6 @@ const userController = new UserController();
         
 userRouter.post('/register',userRules['forRegister'], (req: Request, res: Response) => {
     const errors = validationResult(req.body)
-    console.log(req.body, "KKK")
     if (!errors.isEmpty())
         return res.status(422).json(errors.array())
 
