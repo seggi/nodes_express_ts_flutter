@@ -1,4 +1,3 @@
-import 'package:btms_frontend/screens/auth/signuppage.dart';
 import 'package:flutter/material.dart';
 
 class MobileNavBar extends StatelessWidget {
@@ -81,7 +80,7 @@ class MobileNavBar extends StatelessWidget {
                             alignment: Alignment.topLeft,
                             margin: const EdgeInsets.only(left: 20.0),
                             child: const Text(
-                              "Sign In",
+                              "Sign Up",
                               style: TextStyle(
                                   letterSpacing: -1.0,
                                   fontSize: 28.0,
@@ -94,10 +93,11 @@ class MobileNavBar extends StatelessWidget {
                             padding: const EdgeInsets.all(16.0),
                             child: MobileSignInForm(_formKey),
                           ),
+                          // const SizedBox(height: 20.0),
                           const SizedBox(height: 10.0),
                           TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, '/signup');
+                                Navigator.pop(context);
                               },
                               child: RichText(
                                   text: const TextSpan(
@@ -143,7 +143,7 @@ Widget MobileSignInForm(_formKey) {
             alignment: Alignment.topLeft,
             margin: const EdgeInsets.only(left: 0.0),
             child: const Text(
-              "Username",
+              "Email",
               style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300),
             ),
           ),
@@ -154,7 +154,7 @@ Widget MobileSignInForm(_formKey) {
             decoration: const InputDecoration(
               filled: true,
               fillColor: Colors.white,
-              hintText: 'Username',
+              hintText: 'Email',
               contentPadding: EdgeInsets.only(left: 8.0, bottom: 8.0, top: 8.0),
             ),
             validator: (value) {
@@ -191,7 +191,34 @@ Widget MobileSignInForm(_formKey) {
               return null;
             },
           ),
-          const SizedBox(height: 48.0),
+          const SizedBox(height: 20.0),
+          Container(
+            alignment: Alignment.topLeft,
+            margin: const EdgeInsets.only(left: 0.0),
+            child: const Text(
+              "Confirm Password",
+              style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w300),
+            ),
+          ),
+          const SizedBox(height: 5.0),
+          TextFormField(
+            autofocus: false,
+            obscureText: true,
+            style: const TextStyle(fontSize: 18.0, color: Color(0xFFbdc6cf)),
+            decoration: const InputDecoration(
+              filled: true,
+              fillColor: Colors.white,
+              hintText: '*********',
+              contentPadding: EdgeInsets.only(left: 8.0, bottom: 8.0, top: 8.0),
+            ),
+            validator: (value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+          const SizedBox(height: 50.0),
           InkWell(
               child: Container(
             width: 400,
@@ -200,14 +227,14 @@ Widget MobileSignInForm(_formKey) {
                 color: Colors.black87,
                 borderRadius: BorderRadius.all(Radius.circular(400.0))),
             child: const Center(
-              child: Text('Login',
+              child: Text('Sign Up',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18.0,
                     fontWeight: FontWeight.bold,
                   )),
             ),
-          ))
+          )),
         ],
       ));
 }
