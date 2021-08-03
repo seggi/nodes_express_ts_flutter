@@ -1,6 +1,9 @@
-import 'package:btms_frontend/screens/public/admin/graph.dart';
+import 'dart:async';
+import 'dart:math';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:btms_frontend/screens/public/admin/dashboard.dart';
+import 'package:btms_frontend/screens/public/admin/graph.dart';
 
 class AdminMainPage extends StatefulWidget {
   AdminMainPage({Key? key}) : super(key: key);
@@ -10,6 +13,8 @@ class AdminMainPage extends StatefulWidget {
 }
 
 class _AdminMainPageState extends State<AdminMainPage> {
+  PageController controller = PageController();
+
   @override
   Widget build(BuildContext context) {
     return Title(
@@ -22,10 +27,24 @@ class _AdminMainPageState extends State<AdminMainPage> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             child: Row(
-              children: [sideBarProfile(), optionList(), rightSide()],
+              children: [
+                // pagesList(),
+                // sideBarProfile(),
+                testScreen(),
+                optionList(),
+                pagesList()
+              ],
             ),
           ),
         )));
+  }
+
+  Widget pagesList() {
+    return Expanded(
+        child: Column(
+      mainAxisSize: MainAxisSize.max,
+      children: const [],
+    ));
   }
 
   Widget sideBarProfile() {
@@ -110,7 +129,10 @@ class _AdminMainPageState extends State<AdminMainPage> {
             IconButton(
               color: Colors.grey[600],
               onPressed: () {
-                Navigator.pushNamed(context, '/dashboard/traffic');
+                Navigator.pushReplacement<void, void>(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => testScreen()));
               },
               icon: const Icon(Icons.person_sharp),
               iconSize: 30,
@@ -139,172 +161,7 @@ class _AdminMainPageState extends State<AdminMainPage> {
     );
   }
 
-  Widget rightSide() {
-    return Container(
-        child: Expanded(
-            child: Column(
-      children: [
-        Container(
-            width: MediaQuery.of(context).size.width,
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  const Expanded(
-                    child: Padding(
-                      padding: EdgeInsets.all(16.0),
-                      child: Text(
-                        "Dashbord",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w300),
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    child: Container(
-                        width: 200,
-                        padding: const EdgeInsets.all(8.0),
-                        margin: const EdgeInsets.only(right: 20.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: <Widget>[
-                            IconButton(
-                              color: Colors.grey[600],
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.settings,
-                              ),
-                            ),
-                            const SizedBox(
-                              width: 50.0,
-                            ),
-                            Container(
-                                height: 50,
-                                width: 50,
-                                alignment: Alignment.topRight,
-                                decoration: const BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                      image: AssetImage(
-                                          "images/board_traders.jpg"),
-                                      fit: BoxFit.cover),
-                                )),
-                          ],
-                        )),
-                  ),
-                ])),
-        Container(
-          width: MediaQuery.of(context).size.width,
-          height: 150.0,
-          padding: EdgeInsets.all(16.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Card(
-                child: Container(
-                  width: 200,
-                  height: 120,
-                  color: Colors.green[100],
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(16.0),
-                        child: const Text(
-                          "Traffics",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(8.0),
-                        child: const Text(
-                          "34",
-                          style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Card(
-                child: Container(
-                  width: 200,
-                  height: 120,
-                  color: Colors.amber[100],
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(16.0),
-                        child: const Text(
-                          "Registered",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(8.0),
-                        child: const Text(
-                          "100",
-                          style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Card(
-                child: Container(
-                  width: 200,
-                  height: 120,
-                  color: Colors.orange[100],
-                  child: Column(
-                    children: <Widget>[
-                      Container(
-                        padding: const EdgeInsets.all(16.0),
-                        child: const Text(
-                          "Business",
-                          style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        padding: const EdgeInsets.all(8.0),
-                        child: const Text(
-                          "34",
-                          style: TextStyle(
-                            fontSize: 28,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-        SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Container(
-              color: Colors.black,
-              width: MediaQuery.of(context).size.width - 400,
-              height: 500,
-              child: GraphTraffic()),
-        )
-      ],
-    )));
+  Widget testScreen() {
+    return const Text("DDDDD");
   }
 }
