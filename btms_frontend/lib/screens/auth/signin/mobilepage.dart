@@ -92,7 +92,7 @@ class MobileNavBar extends StatelessWidget {
                           Container(
                             width: 400.0,
                             padding: const EdgeInsets.all(16.0),
-                            child: MobileSignInForm(_formKey),
+                            child: MobileSignInForm(_formKey, context),
                           ),
                           const SizedBox(height: 10.0),
                           TextButton(
@@ -132,7 +132,7 @@ class MobileNavBar extends StatelessWidget {
 // Mobile Signin Form
 
 // ignore: non_constant_identifier_names
-Widget MobileSignInForm(_formKey) {
+Widget MobileSignInForm(_formKey, context) {
   return Form(
       key: _formKey,
       child: Column(
@@ -193,21 +193,25 @@ Widget MobileSignInForm(_formKey) {
           ),
           const SizedBox(height: 48.0),
           InkWell(
-              child: Container(
-            width: 400,
-            padding: const EdgeInsets.all(16.0),
-            decoration: const BoxDecoration(
-                color: Colors.black87,
-                borderRadius: BorderRadius.all(Radius.circular(400.0))),
-            child: const Center(
-              child: Text('Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 18.0,
-                    fontWeight: FontWeight.bold,
-                  )),
+            child: Container(
+              width: 400,
+              padding: const EdgeInsets.all(16.0),
+              decoration: const BoxDecoration(
+                  color: Colors.black87,
+                  borderRadius: BorderRadius.all(Radius.circular(400.0))),
+              child: const Center(
+                child: Text('Login',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                    )),
+              ),
             ),
-          ))
+            onTap: () {
+              Navigator.pushNamed(context, '/dashboard');
+            },
+          )
         ],
       ));
 }

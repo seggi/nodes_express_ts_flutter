@@ -101,7 +101,7 @@ class MobileNavBar extends StatelessWidget {
                               },
                               child: RichText(
                                   text: const TextSpan(
-                                      text: "Don't have an account? ",
+                                      text: "have an account? ",
                                       style: TextStyle(
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w300,
@@ -109,7 +109,7 @@ class MobileNavBar extends StatelessWidget {
                                       ),
                                       children: <TextSpan>[
                                     TextSpan(
-                                        text: "register now",
+                                        text: "go back to Sign In",
                                         style: TextStyle(
                                           letterSpacing: 0.0,
                                           color: Colors.green,

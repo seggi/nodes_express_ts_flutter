@@ -1,6 +1,9 @@
 import 'package:btms_frontend/screens/auth/signuppage.dart';
+import 'package:btms_frontend/screens/public/admin/trafficpage.dart';
 import 'package:flutter/material.dart';
 import 'package:btms_frontend/screens/auth/signinpage.dart';
+
+import 'screens/public/admin/adminpage.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -8,7 +11,9 @@ void main() {
     initialRoute: '/',
     routes: {
       '/': (context) => SignIpPage(),
-      '/signup': (context) => const SignUpPage()
+      '/signup': (context) => const SignUpPage(),
+      '/dashboard': (context) => AdminMainPage(),
+      '/dashboard/traffic': (context) => TrafficPage(),
     },
   ));
 }
