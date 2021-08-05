@@ -3,12 +3,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPeopleArrows, faListAlt } from '@fortawesome/free-solid-svg-icons'
-import TradersListTable from "./Traffics/traderstbl";
+import UserListTable from "./userstbl";
 
 
-import PopupModal from "./modal/popupmodal";
+import PopupModal from "../modal/popupmodal";
 
-const FomAddNewTrader = () => {
+const RegisterNewUser = () => {
    return(
        <>
         <div className='form-item__box'>
@@ -18,12 +18,16 @@ const FomAddNewTrader = () => {
                     <input type="text" placeholder={'Full Name'} />
                 </div>
                 <div className="form-items">
-                    <span className="labeltitle">{'Contact'}</span>
-                    <input type="text" placeholder={'Contact'} />
+                    <span className="labeltitle">{'Sex'}</span>
+                    <input type="text" placeholder={'Sex'} />
                 </div>
                 <div className="form-items">
-                    <span className="labeltitle">{'Business'}</span>
-                    <input type="text" placeholder={'Business'} />
+                    <span className="labeltitle">{'Function'}</span>
+                    <input type="text" placeholder={'Function'} />
+                </div>
+                <div className="form-items">
+                    <span className="labeltitle">{'Password'}</span>
+                    <input type="text" placeholder={'Password'} />
                 </div>
                 <div className="btnLogin">
                     <Link to='/main_page/dashboard'>
@@ -58,8 +62,7 @@ const NewBusinessCategory = () => {
 }
 
 
-function TrafficList() {
-        const [openPopup, setOpenPopup] = useState(false);
+function ManaUsers() {
         const [openPopupReg, setOpenPopupReg] = useState(false);
 
        return (
@@ -73,58 +76,36 @@ function TrafficList() {
                                 </span>
                             </Link>
                         </div>
-                        <div className="btn-group">
-                            
-                            <Link to='#' onClick={() => setOpenPopup(true)}>
-                                <span>
-                                    <FontAwesomeIcon icon={faListAlt}/> Add Business
-                                </span>
-                            </Link>
-                        </div>
-                        
+            
                     </div>     
                     <div className="card-listtile-box__row">
                         <div className="card-tile">
                             <div className="card-tile_title">
-                                <span>Traders</span>
+                                <span>Users</span>
                             </div>
                             <div className="card-tile_item">
-                                <span>64</span>
+                                <span>24</span>
                             </div>
                         </div>
 
-                        <div className="card-tile">
-                            <div className="card-tile_title">
-                                <span>Business</span>
-                            </div>
-                            <div className="card-tile_item">
-                                <span>12</span>
-                            </div>
-                        </div>
                     </div>
 
                     <div className="graph-box tbl-content">
-                       <TradersListTable />
+                       <UserListTable />
                     </div>
                 </div>
 
                 <PopupModal
-                    title = "New Trader"
+                    title = "New User"
                     openPopup = { openPopupReg }
                     setOpenPopup = { setOpenPopupReg }
                     >
-                    <FomAddNewTrader />
+                    <RegisterNewUser />
                 </PopupModal>
 
-                <PopupModal
-                    title = "Business Category"
-                    openPopup = { openPopup }
-                    setOpenPopup = { setOpenPopup }
-                    >
-                    <NewBusinessCategory />
-                </PopupModal>
+                
         </>
        )
     }
 
-export default TrafficList;
+export default ManaUsers;

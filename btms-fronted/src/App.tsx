@@ -9,6 +9,7 @@ import SignUpPage from './aurh/signup/signuppage';
 import MainPage from './maincomponents/mainpage';
 import Dashboard from './maincomponents/dashboard';
 import TrafficList from './maincomponents/traderslist';
+import ManaUsers from './maincomponents/users/manageusers';
 
 
 
@@ -20,6 +21,8 @@ function App () {
           <Route path="/signup" component={SignUpPage} />
           <Route path="/main_page/dashboard" component={MainPage}/>
           <Route path="/main_page/traders_list" component={MainPage}/>
+          <Route path="/main_page/users" component={MainPage} />
+          <Route path="/main_page/manage_repport" component={MainPage} />
         </Switch>
       </Router>
     )

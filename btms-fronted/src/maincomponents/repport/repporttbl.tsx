@@ -1,10 +1,9 @@
-import React from "react";
 
 import ReactTable from "react-table-6";
 import 'react-table-6/react-table.css';
 
 
-function TradersListTable() {
+function RepportListTable() {
     const columns = [
         {  
             Header: 'Trader Id',  
@@ -26,7 +25,7 @@ function TradersListTable() {
             filterable: false,
         },
         {
-            Header: "Business Category",
+            Header: "Sex",
             accessor: "roles",
             sortable: false,
             filterable: false,
@@ -35,18 +34,17 @@ function TradersListTable() {
             },
         },
         {
-            Header: "Reg. Date",
-            accessor: "faculty",
+            Header: "Business",
+            accessor: "roles",
             sortable: false,
             filterable: false,
             style: {
                 textAlign: "center"
             },
         },
-
         {
-            Header: "Updated At",
-            accessor: "voteresult",
+            Header: "Boarder Crossed Date",
+            accessor: "faculty",
             sortable: false,
             filterable: false,
             style: {
@@ -77,7 +75,7 @@ function TradersListTable() {
                         columns={columns}
                         noDataText={"Please Wait..."}
                         filterable
-                        defaultPageSize={8}
+                        defaultPageSize={10}
                         pageSizeOptions={[2, 4, 6]}
                         />
                 </div>
@@ -86,4 +84,4 @@ function TradersListTable() {
     )
 }
 
-export default TradersListTable;
+export default RepportListTable;

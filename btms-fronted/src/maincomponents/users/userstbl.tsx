@@ -1,13 +1,12 @@
-import React from "react";
 
 import ReactTable from "react-table-6";
 import 'react-table-6/react-table.css';
 
 
-function TradersListTable() {
+function UserListTable() {
     const columns = [
         {  
-            Header: 'Trader Id',  
+            Header: 'User Id',  
             accessor: 'id',
             sortable: false,
             filterable: false,
@@ -26,7 +25,16 @@ function TradersListTable() {
             filterable: false,
         },
         {
-            Header: "Business Category",
+            Header: "Sex",
+            accessor: "roles",
+            sortable: false,
+            filterable: false,
+            style: {
+                textAlign: "center"
+            },
+        },
+        {
+            Header: "Function",
             accessor: "roles",
             sortable: false,
             filterable: false,
@@ -86,4 +94,4 @@ function TradersListTable() {
     )
 }
 
-export default TradersListTable;
+export default UserListTable;

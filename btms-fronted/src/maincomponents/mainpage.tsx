@@ -5,11 +5,13 @@ import TrafficList from "./traderslist";
 
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faSignOutAlt, faUser, faPeopleArrows, faBusinessTime, faHome, faToolbox } from '@fortawesome/free-solid-svg-icons'
+import {  faSignOutAlt, faUser, faPeopleArrows, faBusinessTime, faHome, faUserEdit } from '@fortawesome/free-solid-svg-icons'
 import '@progress/kendo-theme-default/dist/all.css';
 
 import { htmlLabels } from "../aurh/datas";
 import "../style/mainpage_style.css";
+import ManaUsers from "./users/manageusers";
+import MangeRepport from "./repport/managerepport";
 
 
 
@@ -43,17 +45,17 @@ function MainPage (){
                                             <FontAwesomeIcon icon={ faHome } />
                                         </span>
                                     </Link>
-                                    <Link to={`/main_page/traders_list/${23}`} className="btn-menu">
+                                    <Link to={`/main_page/traders_list/`} className="btn-menu">
                                         <span >
                                             <FontAwesomeIcon icon={ faPeopleArrows } />
                                         </span>
                                     </Link>
-                                    <Link to="/login" className="btn-menu">
+                                    <Link to="/main_page/users" className="btn-menu">
                                         <span >
                                             <FontAwesomeIcon icon={ faUser } />
                                         </span>
                                     </Link>
-                                    <Link to="/login" className="btn-menu">
+                                    <Link to="/main_page/manage_repport" className="btn-menu">
                                         <span >
                                             <FontAwesomeIcon icon={ faBusinessTime } />
                                         </span>
@@ -61,7 +63,7 @@ function MainPage (){
 
                                     <Link to="/login" className="btn-menu" style={{ color: '#333' }}>
                                         <span >
-                                            <FontAwesomeIcon icon={ faToolbox } />
+                                            <FontAwesomeIcon icon={ faUserEdit } />
                                         </span>
                                     </Link>
                                 </div>
@@ -70,9 +72,20 @@ function MainPage (){
                             <Route path={`/main_page/dashboard`} >
                                 <Dashboard />
                             </Route>
-                            <Route path={`/main_page/traders_list/:ids`}>
+                            <Route path={`/main_page/traders_list`}>
                                 <TrafficList />
                             </Route>
+
+                            <Route path={`/main_page/users`}>
+                                <ManaUsers />
+                            </Route>
+
+                            <Route path={`/main_page/manage_repport`}>
+                                <MangeRepport />
+                            </Route>
+
+                            
+
                         </div>
                     </div>
                 </div>
