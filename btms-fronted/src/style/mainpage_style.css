@@ -1,0 +1,193 @@
+.main-container-box {
+    padding: 0;
+    margin: 0;
+    background: rgb(206, 206, 206);
+}
+
+.main-container-box__row {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.first-item_box__column {
+    width: 80px;
+    height: 100%;
+    background: rgb(17, 17, 17);
+    position: absolute;
+}
+
+.inner-first_box__column {
+    height: inherit;
+    padding: 4px;
+    display:  flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+.main-container-box__title {
+    color: #fff;
+    text-align: center;
+    padding: 4px;
+    font-weight: 900;
+}
+
+.btn-logout {
+    color: #fff;
+    text-align:center;
+    padding: 4px;
+    margin-bottom: 100px; 
+    font-size: 24px;
+    text-decoration: none;
+}
+
+.second-item_box {
+    left: 80px;
+    width: 100px;
+    height: 100%;
+    position: absolute;
+    background: rgb(211, 211, 211);
+}
+
+.sencond-item_box__column {
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 30px;
+}
+
+.btn-menu {
+    color: rgb(3, 85, 3);
+    text-align:center;
+    padding: 4px;
+    font-size: 28px;
+    text-decoration: none;
+    margin: 16px;
+}
+
+.btn-menu:hover {
+    color: green;
+}
+
+.active {
+    color: orangered;
+}
+
+.third-item_box__column {
+    left: 180px;
+    width: 87%;
+    height: 100%;
+    position: absolute;
+}
+
+.profile-image {
+    margin-left: 5px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.profile-image img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+}
+
+.card-listtile-box__row  {
+    width: 100%;
+    display: flex;
+    padding: 8px;
+    background-color: rgb(234, 236, 234);
+}
+
+.card-tile {
+    padding: 8px;
+    width: 200px;
+    margin-top: 30px;
+    margin-left: 30px;
+    border: 3px solid #fff;
+    border-radius: 8px;
+    background: rgb(232, 255, 232);
+}
+
+.card-tile_title {
+    font-size: 28px;
+    font-weight: 400;
+    white-space: -0.5;
+    word-spacing: 0;
+    padding: 8px;
+    border-bottom: 1px solid #868686;
+}
+
+.card-tile_item {
+    text-align: center;
+    padding: 8px;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+
+.graph-box {
+   padding: 16px;
+   position: absolute;
+}
+
+.top-btn_items {
+    width: 100%;
+    padding: 8px;
+    background: rgb(3, 85, 3);
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row;
+}
+
+.btn-group {
+    color: white;
+    margin-left: 50px;
+    display: flex;
+    padding: 8px;
+    font-size: 18px;
+}
+
+.btn-group  a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    display: flex;
+    width: 200px;
+}
+
+.btn-group  a:hover {
+    color:  rgb(241, 193, 176);
+
+}
+
+.btn-group  a span {
+    margin-left: 20px;
+}
+
+.tbl-content {
+    width: 95%;
+}
+.tbl_box {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.mainboxTitle {
+    color: var( --title-primary-color-h1s);
+    font-size: 108%;
+    font-weight: 600;
+    letter-spacing: .25px;
+    margin-bottom: 12px;
+    outline: none;
+    padding-bottom: 4px;
+    padding-top: 8px;
+    margin-top: 21px;
+    margin-left: 25px;
+}
+
+.tbl_box .tables {
+    width: 100%;
+}

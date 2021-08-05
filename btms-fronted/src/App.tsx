@@ -2,28 +2,27 @@ import React from 'react';
 import './App.css';
 
 
-import { HashRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 import LoginPage from './aurh/signin/loginpage';
 import SignUpPage from './aurh/signup/signuppage';
+import MainPage from './maincomponents/mainpage';
+import Dashboard from './maincomponents/dashboard';
+import TrafficList from './maincomponents/traderslist';
 
 
-class App extends React.Component {
-  render() {
+
+function App () {
     return (
       <Router>
-        <div>
-          <nav>
-            <Link to="signin"></Link>
-            <Link to="signup"></Link>
-          </nav>
-          <Switch>
-            <Route exact={true} path="/" component={LoginPage}></Route>
-            <Route exact path="/signup" component={SignUpPage}></Route>
-          </Switch>
-        </div>
+        <Switch>
+          <Route exact={true} path="/login" component={LoginPage} />
+          <Route path="/signup" component={SignUpPage} />
+          <Route path="/main_page/dashboard" component={MainPage}/>
+          <Route path="/main_page/traders_list" component={MainPage}/>
+        </Switch>
       </Router>
     )
-  }
 }
 
 export default App;

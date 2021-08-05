@@ -35,7 +35,7 @@ class LoginPage extends Component {
                                             </div>
 
                                             <div className="btnLogin">
-                                                <Link to='/main-page'>
+                                                <Link to='/main_page/dashboard'>
                                                     {htmlLabels.btnlogin}
                                                 </Link>
                                             </div>
