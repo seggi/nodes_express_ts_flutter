@@ -11,19 +11,19 @@ class RoutesName {
 }
 
 class RouteGenerator {
-  static Route<dynamic> generateRoute(RouteSettings settings) {
-    switch (settings.name) {
-      case RoutesName.FIRST_PAGE:
-        return _GeneratePageRoute(
-            widget: SignIpPage(), routeName: settings.name);
-      case RoutesName.SECOND_PAGE:
-        return _GeneratePageRoute(
-            widget: SignUpPage(), routeName: settings.name);
-      default:
-        return _GeneratePageRoute(
-            widget: SignIpPage(), routeName: settings.name);
-    }
-  }
+  // static Route<dynamic> generateRoute(RouteSettings settings) {
+  // switch (settings.name) {
+  //   case RoutesName.FIRST_PAGE:
+  //     return _GeneratePageRoute(
+  //         widget: SignIpPage(), routeName: settings.name);
+  //   case RoutesName.SECOND_PAGE:
+  //     return _GeneratePageRoute(
+  //         widget: SignUpPage(), routeName: settings.name);
+  //   default:
+  //     return _GeneratePageRoute(
+  //         widget: SignIpPage(), routeName: settings.name);
+  // }
+  // }
 }
 
 class _GeneratePageRoute extends PageRouteBuilder {

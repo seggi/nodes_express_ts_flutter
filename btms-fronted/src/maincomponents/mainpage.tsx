@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import { Link, Route, useParams, useRouteMatch } from "react-router-dom";
 import Dashboard from "./dashboard";
 import TrafficList from "./traderslist";
@@ -13,11 +13,31 @@ import "../style/mainpage_style.css";
 import ManaUsers from "./users/manageusers";
 import MangeRepport from "./repport/managerepport";
 
+import AuthService from "../services/auth.header";
+import { authFetch, logout } from "../aurh/protected";
+
 
 
 function MainPage (){
         const { path, url } =  useRouteMatch();
-        console.log(path, url)
+        const [currentUser, setCurrentUser] = useState(undefined);
+        const [loggedin, setLoggedin] = useState("")
+
+        useEffect(() => {
+            authFetch("http://localhost:5000/api/nk",{
+                method: "GET",
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            }).then(r => r.json())
+            .then(result => {
+                console.log(result)
+                setLoggedin(result)
+            })
+        }, [])
+    
+
         return (
             <>
                  <div className="container">
@@ -28,7 +48,7 @@ function MainPage (){
                                     <div className="main-container-box__title">
                                         <h2>{htmlLabels.siteTitle}</h2>
                                     </div>
-                                    <Link to="/login" className="btn-logout">
+                                    <Link to="/login" onClick={() => logout() } className="btn-logout">
                                         <span >
                                             <FontAwesomeIcon icon={ faSignOutAlt} />
                                         </span>
@@ -83,8 +103,6 @@ function MainPage (){
                             <Route path={`/main_page/manage_repport`}>
                                 <MangeRepport />
                             </Route>
-
-                            
 
                         </div>
                     </div>

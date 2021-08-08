@@ -22,7 +22,7 @@ export class App {
     }
 
     settings() {
-        this.app.set('port', this.port || process.env.PORT || 3000);
+        this.app.set('port', this.port || process.env.PORT || 5000);
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: true }))
         this.app.use(cors())
@@ -30,13 +30,13 @@ export class App {
 
     // Unprotected 
     authRoute() {
-        this.app.use('/api', userRouter)
+        this.app.use('/api/auth', userRouter)
     }
 
     // Protected 
     publicRoute() {
-        this.app.use(tokenGuard())
-        this.app.use('/api/nk', adminRouter)
+        // this.app.use(tokenGuard())
+        this.app.use('/api/nk',tokenGuard(), adminRouter)
     }
 
     async listen() {
