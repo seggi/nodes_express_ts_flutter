@@ -38,7 +38,6 @@ export const getUserLogin: (() => RequestHandler) = (() => async (
     const token = getTokenFromHeaders(req.headers) || req.query.token || req.body.token || '';
     const hasAccess = userController.getCurrentUser(token);
     if (hasAccess) {
-        console.log(hasAccess, "HH")
         return res.json({data: hasAccess})
     }
     return next()

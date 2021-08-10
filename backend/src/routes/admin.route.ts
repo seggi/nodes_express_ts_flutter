@@ -1,10 +1,10 @@
-import jwt from 'jsonwebtoken';
 import { UserController } from "../controllers/user.controller";
 import { Router, Request, Response, RequestHandler, NextFunction } from "express";
 import { getTokenFromHeaders } from "../middlewares/token-guard";
 
-const adminRouter: Router = Router();
+import CheckLoggedIn from "../middlewares/loggedIn-user";
 
+const adminRouter: Router = Router();
 
 
 // export const getUserLogin: (() => RequestHandler) = (() => async (
@@ -17,12 +17,13 @@ const adminRouter: Router = Router();
 // })
 
 
- adminRouter.get('/loggin_user', (req, res) => {
-    const usertoken:any = req.headers.authorization;
-    const token = usertoken.split(' ');
-    const getUser = jwt.verify(token[1], 'nankim45');
-
-
+ adminRouter.get('/loggin_user', async (req, res) => {
+    // const usertoken:any = req.headers.authorization;
+    // const token = usertoken.split(' ');
+    // const getUser = jwt.verify(token[1], 'nankim45');
+    console.log(req.headers.authorization, "KKK")
+    const getUser = await CheckLoggedIn.getUser(req)
+    console.log( getUser, "HHHH");
     return res.json({ data: getUser })
 })
 
@@ -31,4 +32,3 @@ export default adminRouter;
 function getCurrentUser(): any {
     throw new Error("Function not implemented.");
 }
-
