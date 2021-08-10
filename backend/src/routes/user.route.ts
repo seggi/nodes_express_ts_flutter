@@ -4,10 +4,13 @@ import { matchedData } from "express-validator/filter";
 import { validationResult } from "express-validator/check";
 
 import { userRules } from "../rules/user.rules";
-import { User, UserInterface } from "../models/user.model";
+import User, { UserAttributes } from '../../models/user';
+
 import { UserController } from "../controllers/user.controller";
 
+
 const userRouter = Router();
+
 
 const userController = new UserController();
 
@@ -31,13 +34,13 @@ userRouter.post('/login', userRules['forLogin'], (req: Request, res: Response) =
 
 
     User.findOne({ where: { email: req.body.email } })
-    .then(user => {
+    .then((user: any) => {
         bcrypt.compare(req.body.password, user!.password, function( err:any, results){
             if(err){
                 throw new Error(err)
                 }
             if (results) {
-                const payload = matchedData(req) as UserInterface
+                const payload = matchedData(req) as UserAttributes
                 const token = userController.login(payload)
                 return token.then(t => res.json(t))
                 }

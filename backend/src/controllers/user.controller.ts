@@ -1,13 +1,19 @@
 import { Request, Response } from 'express';
 
+
+
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import  bluebird from "bluebird";
 
-import { User, UserInterface } from '../models/user.model';
 
+import sequelize from "../config/db.config";
+import User, { UserAttributes } from '../../models/user';
 
 export class UserController {
+    static getCurrentUser(token: any) {
+        throw new Error("Method not implemented.");
+    }
     private readonly _saltRounds = 12;
     private readonly _jwtSecret = 'nankim45';
 
@@ -25,7 +31,7 @@ export class UserController {
     async register({ 
             firstname,lastname,username,
             sex, phone, address,birthdate,
-            email, password }: UserInterface) {
+            email, password }: UserAttributes) {
     
         const hash = await bcrypt.hash(password, this._saltRounds);
         const u = await User.create({ 
@@ -35,7 +41,7 @@ export class UserController {
         return this.getUserById(u!.id);
     }
 
-    async login({ email }: UserInterface) {
+    async login({ email }: UserAttributes) {
         return await User.findOne({ where: { email }}).then( u => {
             const { id, email } = u!
             return  { token: jwt.sign({id, email}, this._jwtSecret)}
@@ -49,20 +55,28 @@ export class UserController {
                     resolve(false)
                     return 
                 }
-
-                UserController._user = User.findByPk(decoded['id'])
+                UserController._user = User.findByPk(decoded['id']) 
                 resolve(true)
-                return
+                return 
             })
+        }) as Promise<any>
+    }
+
+    async getCurrentUser(token:string)  {
+        return jwt.verify(token, this._jwtSecret, async (err, decodedToken) => {
+            if (err) {
+                return
+            }
+            else {
+                UserController._user = await User.findByPk(decodedToken?.id);
+                // return UserController._user
+            }
         })
     }
 
     getUserById(id: number) {
         return User.findByPk(id, {
             attributes: UserController.userAttributes
-        }) as bluebird<UserInterface>
+        }) as bluebird<UserAttributes>
     }
-
-    
-
 }

@@ -2,20 +2,21 @@ import express, { Application } from "express";
 import cors from "cors";
 import * as bodyParser from "body-parser";
 
-
 import userRouter from "./routes/user.route";
 import adminRouter from "./routes/admin.route";
-import { tokenGuard } from "./middlewares/token-guard";
+
+import { getUserLogin, tokenGuard } from "./middlewares/token-guard";
+
+
+
 // Routes
 
-const app = express();
-const port = 3000;
 
 export class App {
     private app: Application;
 
     constructor(private port?: number | string) {
-        this.app = express();
+        this.app = express()
         this.settings()
         this.authRoute()
         this.publicRoute()
@@ -31,12 +32,13 @@ export class App {
     // Unprotected 
     authRoute() {
         this.app.use('/api/auth', userRouter)
+
     }
 
     // Protected 
     publicRoute() {
-        // this.app.use(tokenGuard())
         this.app.use('/api/nk',tokenGuard(), adminRouter)
+    
     }
 
     async listen() {

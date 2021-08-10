@@ -1,9 +1,11 @@
 import { Sequelize } from "sequelize";
 
-export const sequelize = new Sequelize({
+const sequelize = new Sequelize({
 	host: "localhost",
     database: "nk-btms",
 	username: "root",
 	password: "",
 	dialect: "mysql",
 });
+
+export default sequelize;

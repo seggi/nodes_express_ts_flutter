@@ -1,7 +1,10 @@
 import bcrypt from 'bcrypt';
 import { check } from 'express-validator/check';
-import { User } from '../models/user.model';
 
+
+import { DataType } from 'sequelize';
+import sequelize from "../config/db.config";
+import User from '../../models/user';
 
 
 export const userRules = {
