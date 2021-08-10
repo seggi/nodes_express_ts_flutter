@@ -18,9 +18,6 @@ const adminRouter: Router = Router();
 
 
  adminRouter.get('/loggin_user', async (req, res) => {
-    // const usertoken:any = req.headers.authorization;
-    // const token = usertoken.split(' ');
-    // const getUser = jwt.verify(token[1], 'nankim45');
     console.log(req.headers.authorization, "KKK")
     const getUser = await CheckLoggedIn.getUser(req)
     console.log( getUser, "HHHH");
